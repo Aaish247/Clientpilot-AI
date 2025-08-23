@@ -1,7 +1,9 @@
+// app/page.tsx
 "use client";
+
 import { useState } from "react";
 
-export default function HomePage() {
+export default function Home() {
   const [email, setEmail] = useState("");
   const [service, setService] = useState("");
   const [client, setClient] = useState("");
@@ -30,69 +32,79 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
-      {/* Header */}
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-6 text-center">
-        Welcome to ClientPilot AI
+    <div style={{ fontFamily: "Arial, sans-serif", padding: "2rem", textAlign: "center" }}>
+      <h1 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "2rem" }}>
+        Choose Your Plan
       </h1>
-      <p className="text-lg text-gray-600 mb-10 text-center max-w-xl">
-        Automate your client outreach and grow your business effortlessly.
-      </p>
 
-      {/* Form */}
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-4 border border-gray-200"
-      >
+      <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem" }}>
+        {/* Free Plan */}
+        <div style={{ border: "2px solid gray", borderRadius: "10px", padding: "1.5rem", width: "200px" }}>
+          <h2>Free</h2>
+          <p>$0 / forever</p>
+        </div>
+
+        {/* Monthly Plan (Highlighted Blue Border) */}
+        <div style={{ border: "3px solid darkblue", borderRadius: "10px", padding: "1.5rem", width: "200px" }}>
+          <h2>Monthly</h2>
+          <p>$10 / month</p>
+        </div>
+
+        {/* Lifetime Plan */}
+        <div style={{ border: "2px solid gray", borderRadius: "10px", padding: "1.5rem", width: "200px" }}>
+          <h2>Lifetime</h2>
+          <p>$99 one time</p>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} style={{ marginTop: "2rem", textAlign: "left", maxWidth: "400px", marginInline: "auto" }}>
+        <label>Email</label>
         <input
           type="email"
-          placeholder="Your email"
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          style={{ width: "100%", padding: "8px", marginBottom: "1rem", border: "1px solid gray", borderRadius: "5px" }}
         />
 
+        <label>Service</label>
         <input
           type="text"
-          placeholder="What service do you offer?"
           value={service}
           onChange={(e) => setService(e.target.value)}
-          required
-          className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          style={{ width: "100%", padding: "8px", marginBottom: "1rem", border: "1px solid gray", borderRadius: "5px" }}
         />
 
+        <label>Client</label>
         <input
           type="text"
-          placeholder="Target client (e.g. realtors, doctors)"
           value={client}
           onChange={(e) => setClient(e.target.value)}
-          required
-          className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          style={{ width: "100%", padding: "8px", marginBottom: "1rem", border: "1px solid gray", borderRadius: "5px" }}
         />
 
+        <label>Extra</label>
         <textarea
-          placeholder="Any extra notes..."
           value={extra}
           onChange={(e) => setExtra(e.target.value)}
-          className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          style={{ width: "100%", padding: "8px", marginBottom: "1rem", border: "1px solid gray", borderRadius: "5px" }}
         />
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+          style={{
+            width: "100%",
+            backgroundColor: "darkblue",
+            color: "white",
+            padding: "10px",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
         >
-          🚀 Start
+          Start
         </button>
       </form>
-
-      {/* Plans Button */}
-      <a
-        href="/plans"
-        className="mt-8 inline-block text-blue-600 font-semibold hover:underline"
-      >
-        See Plans & Upgrade →
-      </a>
     </div>
   );
 }
