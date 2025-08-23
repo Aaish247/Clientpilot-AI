@@ -1,0 +1,45 @@
+/* app/globals.css */
+
+/* Apply a simple reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make sure html and body take full height */
+html,
+body {
+  height: 100%;
+}
+
+/* Set a clean default font */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #fff;
+  color: #000;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Anchor tags */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Images scale nicely */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility: remove default list styles */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
